@@ -65,10 +65,14 @@ const Tip: React.FC<TipProps> = memo(({ item, width, header }) => {
     <View style={tipStyles.tipContainer}>
       {item.showHeader && (
         <View style={tipStyles.tipHeaderContainer}>
-          <Text style={tipStyles.tipHeader}>{header}</Text>
+          <Text adjustsFontSizeToFit style={tipStyles.tipHeader}>
+            {header}
+          </Text>
         </View>
       )}
-      <Text style={tipStyles.tipText}>{item.text}</Text>
+      <Text adjustsFontSizeToFit style={tipStyles.tipText}>
+        {item.text}
+      </Text>
     </View>
   )
 })
@@ -78,7 +82,7 @@ const TipCarousel: React.FC = () => {
   const { width } = useWindowDimensions()
   const [currentPosition, setCurrentPosition] = useState(0)
   const { t } = useTranslation()
-  const delay = 5000 // ms
+  const delay = 10000 // ms
   const tips = [
     {
       id: '0',
